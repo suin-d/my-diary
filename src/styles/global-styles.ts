@@ -109,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
   body {
+    box-sizing: border-box;
     line-height: 1;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
