@@ -6,6 +6,7 @@ import {
 } from 'react-icons/md';
 import EmptyContent from 'components/common/EmptyContent';
 import DiaryList from 'components/list/diaryList';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = styled.header`
   text-align: center;
@@ -16,7 +17,13 @@ const MenuIconsBox = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: ${({ theme }) => theme.colors.mintGreen};
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.mintGreen};
+  }
 `;
 
 export type hashTagProps = {
@@ -63,15 +70,23 @@ export const mockDiaryList: diaryCardProps[] = [
 ];
 
 export default function Main() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header>my diary</Header>
       {/* <EmptyContent /> */}
       <DiaryList diaryList={mockDiaryList} />
       <MenuIconsBox>
-        <MdOutlineHome size="26" />
-        <MdAddCircleOutline size="25" />
-        <MdOutlineCalendarToday size="24" />
+        <button onClick={() => navigate('/')}>
+          <MdOutlineHome size="26" />
+        </button>
+        <button onClick={() => navigate('/write')}>
+          <MdAddCircleOutline size="25" />
+        </button>
+        <button onClick={() => alert('아직 준비중입니다.')}>
+          <MdOutlineCalendarToday size="24" />
+        </button>
       </MenuIconsBox>
     </>
   );
