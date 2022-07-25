@@ -42,7 +42,7 @@ export default function CustomTextarea({
 }: CustomTextareaPropsType): JSX.Element {
   const textareaRef = useRef<null | HTMLTextAreaElement>(null);
   return (
-    <CustomTextareaBox width={width}>
+    <CustomTextareaBox width={width} className="textarea__custom">
       <div className="line"></div>
       <span onClick={() => textareaRef.current?.focus()}>{title}</span>
       <textarea

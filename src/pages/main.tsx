@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 export const Header = styled.header`
   text-align: center;
   font-size: 24px;
+  margin-bottom: 24px;
 `;
 
 const MenuIconsBox = styled.div`

@@ -39,8 +39,16 @@ export default function BaseButton({
 }: ButtonPropsType): JSX.Element {
   return (
     <ButtonBox width={width} height={height} onClick={onClick}>
-      {type === 'button' && <button type="button">{text}</button>}
-      {type === 'submit' && <button type="submit">{text}</button>}
+      {type === 'button' && (
+        <button type="button" className="button__base">
+          {text}
+        </button>
+      )}
+      {type === 'submit' && (
+        <button type="submit" className="button__submit">
+          {text}
+        </button>
+      )}
     </ButtonBox>
   );
 }

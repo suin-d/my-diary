@@ -63,7 +63,7 @@ export default function CustomInput({
 }: CustomInputPropsType): JSX.Element {
   const inputEl = useRef<null | HTMLInputElement>(null);
   return (
-    <CustomInputBox width={width} className="input__cus">
+    <CustomInputBox width={width} className="input__custom">
       <div className="line"></div>
       {title && <span onClick={() => inputEl.current?.focus()}>{title}</span>}
       <input
