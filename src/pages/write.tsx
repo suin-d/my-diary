@@ -1,3 +1,12 @@
+import DiaryEditor from 'components/Editor/diaryEditor';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Header } from './main';
+
 export default function Write() {
-  return <div>writePage</div>;
+  return (
+    <>
+      <Header>일기 작성</Header>
+      <DiaryEditor />
+    </>
+  );
 }

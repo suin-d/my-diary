@@ -6,7 +6,7 @@ import {
 } from 'react-icons/md';
 import EmptyContent from 'components/common/EmptyContent';
 
-const Header = styled.header`
+export const Header = styled.header`
   text-align: center;
   font-size: 24px;
 `;
