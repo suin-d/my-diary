@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useState } from 'react';
 import BaseButton from 'components/common/baseButton';
 import CustomInput from 'components/common/customInput';
@@ -19,12 +19,38 @@ export const DiaryEditorContainer = styled.section`
   .button__submit {
     margin-top: 60px;
   }
+
+  li {
+    display: inline-block;
+    background: ${({ theme }) => theme.colors.beige};
+    color: ${({ theme }) => theme.colors.lightGreen};
+    border: 1px solid ${({ theme }) => theme.colors.lightGreen};
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 5px 5px 0;
+  }
 `;
 export default function DiaryEditor() {
   const [title, onChangeTitle] = useInput('');
   const [content, onChangeContent] = useInput('');
-  const [tag, onChangeTag] = useInput('');
+  const [tagValue, setTagValue] = useState('');
+  const [tagList, setTagList] = useState<string[] | []>([]);
   const [checkDate, setCheckDate] = useState(new Date());
+
+  const onChangeTag = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setTagValue(e.target.value);
+  }, []);
+
+  const onAddTag = () => {
+    setTagList([...tagList, tagValue]);
+    setTagValue('');
+  };
+
+  const onKeypress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      onAddTag();
+    }
+  };
 
   return (
     <DiaryEditorContainer>
@@ -48,10 +74,16 @@ export default function DiaryEditor() {
       ></CustomTextarea>
       <CustomInput
         title="태그"
-        value={tag}
+        value={tagValue}
         onChange={onChangeTag}
-        placeholder="# + 키워드 작성 후 엔터키로 등록"
+        onKeyPress={onKeypress}
+        placeholder="태그 키워드 작성 후 Enter"
       />
+      <ul>
+        {tagList.map((tagItem, index) => (
+          <li key={index}>{tagItem}</li>
+        ))}
+      </ul>
       <BaseButton text="작성" type="submit" />
     </DiaryEditorContainer>
   );

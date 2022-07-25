@@ -45,6 +45,7 @@ type CustomInputPropsType = {
   title: string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress?: (e: React.KeyboardEvent) => void;
   width?: number;
   name?: string;
   type?: string;
@@ -57,6 +58,7 @@ export default function CustomInput({
   value = '',
   name,
   onChange,
+  onKeyPress,
   type = 'text',
   placeholder,
   maxLength,
@@ -71,6 +73,7 @@ export default function CustomInput({
         ref={inputEl}
         value={value || ''}
         onChange={onChange}
+        onKeyPress={onKeyPress}
         name={name}
         placeholder={placeholder}
         maxLength={maxLength}
