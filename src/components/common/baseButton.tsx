@@ -30,7 +30,7 @@ type ButtonPropsType = {
   height?: undefined | string;
   onClick?: () => void;
 };
-export default function Button({
+export default function BaseButton({
   text,
   type = 'button',
   width,
