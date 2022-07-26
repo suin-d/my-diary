@@ -1,12 +1,15 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useState } from 'react';
-import BaseButton from 'components/common/baseButton';
 import CustomInput from 'components/common/customInput';
 import CustomTextarea from 'components/common/customTextarea';
 import useInput from 'components/hooks/useInput';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import styled from 'styled-components';
+import { diaryCardProps } from 'pages/main';
+import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
+import SubmitButton, { SubmitButtonBox } from 'components/common/submitButton';
 
 export const DiaryEditorContainer = styled.section`
   height: 100%;
@@ -30,7 +33,14 @@ export const DiaryEditorContainer = styled.section`
     margin: 5px 5px 5px 0;
   }
 `;
-export default function DiaryEditor() {
+
+type DiaryEditorProps = {
+  onAddDiary: (diaryCard: diaryCardProps) => void;
+};
+export default function DiaryEditor({ onAddDiary }: DiaryEditorProps) {
+  const navigate = useNavigate();
+
+  const formRef = useRef<HTMLFormElement>(null);
   const [title, onChangeTitle] = useInput('');
   const [content, onChangeContent] = useInput('');
   const [tagValue, setTagValue] = useState('');
@@ -52,8 +62,29 @@ export default function DiaryEditor() {
     }
   };
 
+  const goHome = () => {
+    navigate('/');
+  };
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    const diaryCard: diaryCardProps = {
+      id: Date.now(),
+      title,
+      content,
+      date: dayjs(checkDate).format('YYYY-MM-DD'),
+      tag: tagList,
+    };
+    if (!formRef.current) return;
+    formRef.current.reset();
+    alert('저장 성공');
+    onAddDiary(diaryCard);
+    goHome();
+  };
+
   return (
     <DiaryEditorContainer>
+      <form ref={formRef} />
       <DatePicker
         locale={ko}
         dateFormat="yyyy-MM-dd"
@@ -84,7 +115,11 @@ export default function DiaryEditor() {
           <li key={index}>{tagItem}</li>
         ))}
       </ul>
-      <BaseButton text="작성" type="submit" />
+      <SubmitButton
+        onClick={handleSubmit}
+        className="button__submit"
+        text="작성"
+      />
     </DiaryEditorContainer>
   );
 }

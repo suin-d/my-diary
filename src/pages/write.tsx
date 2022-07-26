@@ -1,12 +1,15 @@
 import DiaryEditor from 'components/Editor/diaryEditor';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Header } from './main';
+import { diaryCardProps, Header } from './main';
 
-export default function Write() {
+type DiaryEditorProps = {
+  onAddDiary: (diaryCard: diaryCardProps) => void;
+};
+export default function Write({ onAddDiary }: DiaryEditorProps) {
   return (
     <>
       <Header>일기 작성</Header>
-      <DiaryEditor />
+      <DiaryEditor onAddDiary={onAddDiary} />
     </>
   );
 }
