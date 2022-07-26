@@ -1,26 +1,7 @@
-import styled from 'styled-components';
-import {
-  MdOutlineHome,
-  MdAddCircleOutline,
-  MdOutlineCalendarToday,
-} from 'react-icons/md';
 import DiaryList from 'components/list/diaryList';
-import { useNavigate } from 'react-router-dom';
 import EmptyContent from 'components/common/EmptyContent';
 import Header from 'components/common/header';
-
-const MenuIconsBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  button {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.mintGreen};
-  }
-`;
+import FooterMenu from 'components/common/footerMenu';
 
 export type diaryCardProps = {
   id: number;
@@ -34,8 +15,6 @@ type diaryCardsProps = {
   diaryCards: diaryCardProps[];
 };
 export default function Main({ diaryCards }: diaryCardsProps) {
-  const navigate = useNavigate();
-
   return (
     <>
       <Header text="my diary" />
@@ -44,17 +23,7 @@ export default function Main({ diaryCards }: diaryCardsProps) {
       ) : (
         <DiaryList diaryCards={diaryCards} />
       )}
-      <MenuIconsBox>
-        <button onClick={() => navigate('/')}>
-          <MdOutlineHome size="26" />
-        </button>
-        <button onClick={() => navigate('/write')}>
-          <MdAddCircleOutline size="25" />
-        </button>
-        <button onClick={() => alert('아직 준비중입니다.')}>
-          <MdOutlineCalendarToday size="24" />
-        </button>
-      </MenuIconsBox>
+      <FooterMenu />
     </>
   );
 }

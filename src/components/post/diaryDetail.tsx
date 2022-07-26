@@ -1,3 +1,4 @@
+import FooterMenu from 'components/common/footerMenu';
 import { TagBox } from 'components/Editor/diaryEditor';
 import { diaryCardProps } from 'pages/main';
 import styled from 'styled-components';
@@ -31,15 +32,18 @@ type diaryDetailPostProps = {
 };
 export default function DiaryDetail({ detailPost }: diaryDetailPostProps) {
   return (
-    <DiaryDetailContainer>
-      <div>{detailPost.date}</div>
-      <h1>{detailPost.title}</h1>
-      <p>{detailPost.content}</p>
-      <ul>
-        {detailPost.tag?.map((tagItem, index) => (
-          <TagBox key={index}>{tagItem}</TagBox>
-        ))}
-      </ul>
-    </DiaryDetailContainer>
+    <>
+      <DiaryDetailContainer>
+        <div>{detailPost.date}</div>
+        <h1>{detailPost.title}</h1>
+        <p>{detailPost.content}</p>
+        <ul>
+          {detailPost.tag?.map((tagItem, index) => (
+            <TagBox key={index}>{tagItem}</TagBox>
+          ))}
+        </ul>
+      </DiaryDetailContainer>
+      <FooterMenu />
+    </>
   );
 }
