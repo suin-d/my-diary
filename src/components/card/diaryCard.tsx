@@ -18,16 +18,15 @@ export const DiaryItemBox = styled.article`
   }
 `;
 
-interface diaryItemProps {
+type diaryItemProps = {
   diaryItem: diaryCardProps;
-}
-
+};
 export default function DiaryCard({ diaryItem }: diaryItemProps) {
   return (
     <DiaryItemBox>
       <h1>{diaryItem.title}</h1>
       <div>{diaryItem.content}</div>
-      <div>{diaryItem.tag?.map((tagItem) => `#${tagItem.name} `)}</div>
+      <div>{diaryItem.tag?.map((tagItem) => `#${tagItem} `)}</div>
       <span>{diaryItem.date}</span>
     </DiaryItemBox>
   );
