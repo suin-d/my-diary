@@ -14,7 +14,6 @@ export const SubmitButtonBox = styled.button`
   &:active,
   :hover {
     background: ${({ theme }) => theme.colors.lightGreen};
-    border: 1px solid ${({ theme }) => theme.colors.lightGreen};
   }
 `;
 
