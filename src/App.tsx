@@ -1,5 +1,6 @@
 import Layout from 'components/layout/layout';
 import Main, { diaryCardProps } from 'pages/main';
+import Post from 'pages/post';
 import Write from 'pages/write';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main diaryCards={diaryCards} />} />
           <Route path="/write" element={<Write onAddDiary={createDiary} />} />
+          <Route path="/post/:id" element={<Post diaryCards={diaryCards} />} />
         </Routes>
       </BrowserRouter>
     </Layout>
