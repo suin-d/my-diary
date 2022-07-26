@@ -3,7 +3,7 @@ import { diaryCardProps } from 'pages/main';
 import styled from 'styled-components';
 
 export const DiaryItemBox = styled.article`
-  margin: 33px 0 23px;
+  margin: 27px 0;
   padding: 18px;
   border-radius: 5px;
   background-color: #fff;
@@ -11,9 +11,14 @@ export const DiaryItemBox = styled.article`
     background-color: ${({ theme }) => theme.colors.beige};
   }
   h1 {
-    margin-bottom: 18px;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
   }
   p {
+    padding-top: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

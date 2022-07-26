@@ -19,7 +19,7 @@ export const CustomTextareaBox = styled.div<{ width: number }>`
     outline: none;
     border: none;
     border-radius: 0;
-    padding: 5px;
+    padding: 10px;
     width: 100%;
     height: 200px;
     resize: none;
@@ -39,7 +39,7 @@ export default function CustomTextarea({
   onChange,
   placeholder,
   width = 0,
-}: CustomTextareaPropsType): JSX.Element {
+}: CustomTextareaPropsType) {
   const textareaRef = useRef<null | HTMLTextAreaElement>(null);
   return (
     <CustomTextareaBox width={width} className="textarea__custom">

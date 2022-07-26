@@ -5,7 +5,7 @@ export const LayoutContainer = styled.div`
   width: 375px;
   height: 100vh;
   margin: 0 auto;
-  padding: 19px 24px 31px;
+  padding: 15px 24px;
   position: relative;
   font-family: sans-serif;
   display: flex;
@@ -18,7 +18,6 @@ export const LayoutContainer = styled.div`
 interface LayoutPropsType {
   children: React.ReactNode;
 }
-
 export default function Layout({ children }: LayoutPropsType) {
   return <LayoutContainer>{children}</LayoutContainer>;
 }

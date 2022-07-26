@@ -62,7 +62,7 @@ export default function CustomInput({
   type = 'text',
   placeholder,
   maxLength,
-}: CustomInputPropsType): JSX.Element {
+}: CustomInputPropsType) {
   const inputEl = useRef<null | HTMLInputElement>(null);
   return (
     <CustomInputBox width={width} className="input__custom">
