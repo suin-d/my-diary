@@ -22,16 +22,16 @@ export const DiaryEditorContainer = styled.section`
   .button__submit {
     margin-top: 60px;
   }
+`;
 
-  li {
-    display: inline-block;
-    background: ${({ theme }) => theme.colors.beige};
-    color: ${({ theme }) => theme.colors.lightGreen};
-    border: 1px solid ${({ theme }) => theme.colors.lightGreen};
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px 5px 5px 0;
-  }
+export const TagBox = styled.li`
+  display: inline-block;
+  background: ${({ theme }) => theme.colors.beige};
+  color: ${({ theme }) => theme.colors.lightGreen};
+  border: 1px solid ${({ theme }) => theme.colors.lightGreen};
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 5px 5px 0;
 `;
 
 type DiaryEditorProps = {
@@ -112,7 +112,7 @@ export default function DiaryEditor({ onAddDiary }: DiaryEditorProps) {
       />
       <ul>
         {tagList.map((tagItem, index) => (
-          <li key={index}>{tagItem}</li>
+          <TagBox key={index}>{tagItem}</TagBox>
         ))}
       </ul>
       <SubmitButton
