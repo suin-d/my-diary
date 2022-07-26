@@ -105,13 +105,15 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   /* HTML5 hidden-attribute fix for newer browsers */
+  * {
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', serif!important;   
+  }
   *[hidden] {
     display: none;
   }
   body {
     box-sizing: border-box;
     line-height: 1;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
     text-size-adjust: none;

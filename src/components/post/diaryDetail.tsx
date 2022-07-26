@@ -24,6 +24,7 @@ const DiaryDetailContainer = styled.section`
   div {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 18px;
   }
 `;
 

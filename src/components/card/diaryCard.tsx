@@ -7,6 +7,9 @@ export const DiaryItemBox = styled.article`
   padding: 18px;
   border-radius: 5px;
   background-color: #fff;
+  :hover {
+    background-color: ${({ theme }) => theme.colors.beige};
+  }
   h1 {
     margin-bottom: 18px;
   }
@@ -27,6 +30,7 @@ export const DiaryItemBox = styled.article`
   }
   div {
     text-align: right;
+    font-size: 16px;
   }
 `;
 

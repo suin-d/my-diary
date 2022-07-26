@@ -9,10 +9,13 @@ import styled from 'styled-components';
 import { diaryCardProps } from 'pages/main';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
-import SubmitButton, { SubmitButtonBox } from 'components/common/submitButton';
+import SubmitButton from 'components/common/submitButton';
 
 export const DiaryEditorContainer = styled.section`
   height: 100%;
+  .react-datepicker__input-container {
+    font-size: 30px;
+  }
   .input__custom {
     margin-top: 20px;
   }

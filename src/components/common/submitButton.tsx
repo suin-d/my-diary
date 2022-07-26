@@ -10,6 +10,7 @@ export const SubmitButtonBox = styled.button`
   background: ${({ theme }) => theme.colors.deepGreen};
   outline: none;
   font-size: 16px;
+  font-weight: 300;
   &:active,
   :hover {
     background: ${({ theme }) => theme.colors.lightGreen};

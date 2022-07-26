@@ -15,6 +15,7 @@ export const ButtonBox = styled.div<{
     background: ${({ theme }) => theme.colors.deepGreen};
     outline: none;
     font-size: 16px;
+    font-weight: 300;
     &:active,
     :hover {
       background: ${({ theme }) => theme.colors.lightGreen};
@@ -36,16 +37,11 @@ export default function BaseButton({
   width,
   height,
   onClick,
-}: ButtonPropsType): JSX.Element {
+}: ButtonPropsType) {
   return (
     <ButtonBox width={width} height={height} onClick={onClick}>
       {type === 'button' && (
         <button type="button" className="button__base">
-          {text}
-        </button>
-      )}
-      {type === 'submit' && (
-        <button type="submit" className="button__submit">
           {text}
         </button>
       )}
