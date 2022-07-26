@@ -1,5 +1,6 @@
 import { TagBox } from 'components/Editor/diaryEditor';
 import { diaryCardProps } from 'pages/main';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DiaryItemBox = styled.article`
@@ -44,15 +45,17 @@ type diaryItemProps = {
 };
 export default function DiaryCard({ diaryItem }: diaryItemProps) {
   return (
-    <DiaryItemBox>
-      <h1>{diaryItem.title}</h1>
-      <p>{diaryItem.content}</p>
-      <ul>
-        {diaryItem.tag?.map((tagItem, index) => (
-          <TagBox key={index}>{tagItem}</TagBox>
-        ))}
-      </ul>
-      <div>{diaryItem.date}</div>
-    </DiaryItemBox>
+    <Link to={`/post/${diaryItem.id}`}>
+      <DiaryItemBox>
+        <h1>{diaryItem.title}</h1>
+        <p>{diaryItem.content}</p>
+        <ul>
+          {diaryItem.tag?.map((tagItem, index) => (
+            <TagBox key={index}>{tagItem}</TagBox>
+          ))}
+        </ul>
+        <div>{diaryItem.date}</div>
+      </DiaryItemBox>
+    </Link>
   );
 }
