@@ -1,7 +1,6 @@
-import FooterMenu from 'components/common/footerMenu';
+import styled from 'styled-components';
 import { TagBox } from 'components/Editor/diaryEditor';
 import { diaryCardProps } from 'pages/main';
-import styled from 'styled-components';
 
 const DiaryDetailContainer = styled.section`
   height: 100%;
@@ -44,7 +43,6 @@ export default function DiaryDetail({ detailPost }: diaryDetailPostProps) {
           ))}
         </ul>
       </DiaryDetailContainer>
-      <FooterMenu />
     </>
   );
 }

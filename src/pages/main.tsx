@@ -1,7 +1,6 @@
 import DiaryList from 'components/list/diaryList';
 import EmptyContent from 'components/common/EmptyContent';
 import Header from 'components/common/header';
-import FooterMenu from 'components/common/footerMenu';
 
 export type diaryCardProps = {
   id: number;
@@ -23,7 +22,6 @@ export default function Main({ diaryCards }: diaryCardsProps) {
       ) : (
         <DiaryList diaryCards={diaryCards} />
       )}
-      <FooterMenu />
     </>
   );
 }

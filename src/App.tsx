@@ -1,3 +1,4 @@
+import FooterMenu from 'components/common/footerMenu';
 import Layout from 'components/layout/layout';
 import Main, { diaryCardProps } from 'pages/main';
 import Post from 'pages/post';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/write" element={<Write onAddDiary={createDiary} />} />
           <Route path="/post/:id" element={<Post diaryCards={diaryCards} />} />
         </Routes>
+        <FooterMenu />
       </BrowserRouter>
     </Layout>
   );
