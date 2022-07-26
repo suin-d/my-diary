@@ -7,12 +7,7 @@ import {
 import DiaryList from 'components/list/diaryList';
 import { useNavigate } from 'react-router-dom';
 import EmptyContent from 'components/common/EmptyContent';
-
-export const Header = styled.header`
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 24px;
-`;
+import Header from 'components/common/header';
 
 const MenuIconsBox = styled.div`
   display: flex;
@@ -43,7 +38,7 @@ export default function Main({ diaryCards }: diaryCardsProps) {
 
   return (
     <>
-      <Header>my diary</Header>
+      <Header text="my diary" />
       {diaryCards.length < 1 ? (
         <EmptyContent />
       ) : (
